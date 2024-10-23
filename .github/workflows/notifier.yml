@@ -9,7 +9,14 @@ jobs:
         runs-on: [ ubuntu-latest ]
         steps:
             - id: 'notify_gchat'
-              uses: 'google-github-actions/send-google-chat-webhook@v0.0.2'
+              uses: 'SimonScholz/google-chat-action@main'
               with: 
-                webhook_url: '${{ secrets.WEBHOOK_URL }}'
-                mention: "<users/all>"
+                webhookUrl: '${{ secrets.WEBHOOK_URL }}'
+                title: 'Pull Request: [{{ github.event.pull_request.name }}]({{ github.event.pull_request.html_url }})'
+                imageUrl: 'https://raw.githubusercontent.com/alsmk/actionPrac/main/hi.png?raw=true'
+                imageType: SQUARE
+                imageAltText: 'GitHub Pull Request'
+
+
+
+                
