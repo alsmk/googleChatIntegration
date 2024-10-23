@@ -1,0 +1,15 @@
+name: New Notification
+on: 
+    pull_request:
+        branches: [ dev ]
+        types: [ opened, reopened, closed ]
+
+jobs:
+    notify:
+        runs-on: [ ubuntu-latest ]
+        steps:
+            - id: 'notify_gchat'
+              uses: 'google-github-actions/send-google-chat-webhook@v0.0.2'
+              with: 
+                webhook_url: 'https://chat.googleapis.com/v1/spaces/1234567890/messages'
+                mention: "<users/all>"
