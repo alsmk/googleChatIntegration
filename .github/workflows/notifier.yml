@@ -1,0 +1,22 @@
+name: New Notification
+on: 
+    pull_request:
+        branches: [ dev ]
+        types: [ opened, reopened, closed ]
+
+jobs:
+    notify:
+        runs-on: [ ubuntu-latest ]
+        steps:
+            - id: 'notify_gchat'
+              uses: 'SimonScholz/google-chat-action@main'
+              with: 
+                webhookUrl: '${{ secrets.WEBHOOK_URL }}'
+                title: '${{github.actor}} made a change to ${{ github.repository }}'
+                imageUrl: 'https://raw.githubusercontent.com/alsmk/actionPrac/main/hi.png?raw=true'
+                imageType: SQUARE
+                imageAltText: 'GitHub Pull Request'
+
+
+
+                
