@@ -12,7 +12,7 @@ jobs:
               uses: 'SimonScholz/google-chat-action@main'
               with: 
                 webhookUrl: '${{ secrets.WEBHOOK_URL }}'
-                title: 'Pull Request: [{{ github.event.pull_request.name }}]({{ github.event.pull_request.html_url }})'
+                title: '${{github.actor}} made a change to ${{ github.repository }}'
                 imageUrl: 'https://raw.githubusercontent.com/alsmk/actionPrac/main/hi.png?raw=true'
                 imageType: SQUARE
                 imageAltText: 'GitHub Pull Request'
